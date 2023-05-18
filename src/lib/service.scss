@@ -6,9 +6,9 @@
     @if $gap==0 {
         // допустимо що при введені нуля користувач хоче задати мінімальний відступ в 2px
         @return 2px;
-    } @else if $gap<0 {
+    } @else if $gap<0 or $gap>100 {
         // оскільки від'ємних відступів не буває видамо помилку
-        @error 'Enter a value greater than 0';
+        @error 'Enter a value greater than 0 and less 100';
     } @else {
         @return $gap * 4px;
     }

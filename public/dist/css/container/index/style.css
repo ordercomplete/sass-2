@@ -45,19 +45,6 @@
   color: #1e2a35;
 }
 
-.cost-item {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.cost, .earnings, .sales, .ref-earning, .balance {
-  opacity: 0.2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .balance {
   height: 50px;
   width: 50px;
@@ -84,6 +71,19 @@
   width: 50px;
   border-radius: 50%;
   background-color: #2962ff;
+}
+
+.cost-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.cost, .balance, .ref-earning, .sales, .earnings {
+  opacity: 0.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cost-info p {
