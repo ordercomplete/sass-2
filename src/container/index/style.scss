@@ -3,19 +3,39 @@
 @use "../../component/chatItem/style.scss" as chatItem;
 @use "../../component/costItem/style.scss" as costItem;
 
+// ======================================================
+
+// створюємо об'єкт ключами якого будут ширини ектрана, а значення ширина яку має займати елемент
+$layout-sizes: (
+  "1200px": 80%,
+  "900px": 100%,
+);
+
 .wrapper {
   display: grid;
-  margin: 30px auto;
+  // викликаючи функцію spacing з файлу service.scss задаємо відступи нашому контейнеру
+  margin: service.spacing(8) auto;
   width: 60%;
-  // викликаючи міксин spacing з файлу service.scss задаємо відступи нашому контейнеру
-
-  @include service.spacing(8);
+  // викликаючи функцію spacing з файлу service.scss задаємо відступи нашому контейнеру
+  gap: service.spacing(8);
 }
+
+// створюємо media queries для адаптивності нашого контейнера за допомогою перебору об'єкту
+@each $key, $value in $layout-sizes {
+  @media only screen and (max-width: $key) {
+    .wrapper {
+      width: $value;
+    }
+  }
+}
+
+// =========================================================
 
 .container {
   background-color: #fff;
   display: grid;
-  padding: 16px 32px;
+  // викликаючи функцію spacing з файлу scss задаємо відступи нашому контейнеру
+  padding: service.spacing(4) service.spacing(8);
   border-radius: 5px;
 }
 
@@ -34,7 +54,8 @@
     // використовуємо змінні записані в файлі varibles.scss
     color: varibles.$secondary-text;
   }
-  margin-bottom: 24px;
+  // викликаючи функцію spacing з файлу service.scss задаємо відступи нашому контейнеру
+  margin-bottom: service.spacing(6);
 }
 
 .divider {
@@ -50,6 +71,6 @@
 
 .chats {
   display: grid;
-  // викликаючи міксин spacing з файлу service.scss задаємо відступи нашому контейнеру
-  @include service.spacing(4);
+  // викликаючи функцію spacing з файлу service.scss задаємо відступи нашому контейнеру
+  gap: service.spacing(4);
 }

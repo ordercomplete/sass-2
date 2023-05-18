@@ -2,14 +2,39 @@
 @use "../../lib/varibles.scss";
 
 // кольори статусів повідомлені
-$pendig-color: #2962ff;
+$pending-color: #2962ff;
 $approved-color: #0bb7af;
 $rejected-color: #f64e60;
 
+// ========================================================
+
+// створюємо масив масивів в якому зберігаються назви класів та кольори chip елементів
+$chip-styles: ("rejected" $rejected-color, "approved" $approved-color, "pending" $pending-color);
+
+.chip {
+    border-radius: 5px;
+    // викликаючи функцію spacing з файлу service.scss задаємо відступи нашому контейнеру
+    padding: service.spacing(1) service.spacing(2);
+    width: fit-content;
+    color: #fff;
+}
+
+// за допомогою each перебераемо наш масив масивів та задаємо стилі для chip елементів
+@each $class, $color in $chip-styles {
+    .#{$class} {
+        // успадковуємо стилі класу .chip
+        @extend .chip;
+        // використовуємо змінні
+        background-color: $color;
+    }
+}
+
+// ========================================================
+
 .chat-item {
     display: flex;
-    // викликаючи міксин spacing з файлу service.scss задаємо відступи нашому контейнеру
-    @include service.spacing(2);
+    // викликаючи функцію spacing з файлу service.scss задаємо відступи нашому контейнеру
+    gap: service.spacing(2);
 }
 
 .avatar {
@@ -19,15 +44,19 @@ $rejected-color: #f64e60;
 
 .chat-item-info {
     display: grid;
-    // викликаючи міксин spacing з файлу service.scss задаємо відступи нашому контейнеру
-    @include service.spacing(2);
+    // викликаючи функцію spacing з файлу service.scss задаємо відступи нашому контейнеру
+    gap: service.spacing(2);
 }
 
 .name {
     font-weight: 600;
     font-size: 16px;
-    // використовуємо змінні
-    color: varibles.$primary-text;
+    // перевіримо чи є в нас змінна primary-text, якщо немає задамо чорний колір тексту
+    @if varibles.$primary-text {
+        color: varibles.$primary-text;
+    } @else {
+        color: black;
+    }
 }
 
 .message {
@@ -35,32 +64,4 @@ $rejected-color: #f64e60;
     font-size: 16px;
     // використовуємо змінні
     color: varibles.$primary-text;
-}
-
-.chip {
-    border-radius: 5px;
-    padding: 4px 8px;
-    width: fit-content;
-    color: #fff;
-}
-
-.rejected {
-    // успадковуємо стилі класу .chip
-    @extend .chip;
-    // використовуємо змінні
-    background-color: $rejected-color;
-}
-
-.pending {
-    // успадковуємо стилі класу .chip
-    @extend .chip;
-    // використовуємо змінні
-    background-color: $rejected-color;
-}
-
-.approved {
-    // успадковуємо стилі класу .chip
-    @extend .chip;
-    // використовуємо змінні
-    background-color: $approved-color;
 }

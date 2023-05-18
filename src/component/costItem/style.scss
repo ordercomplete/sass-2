@@ -7,10 +7,15 @@ $ref-earning-color: #f64e60;
 $sales-color: #ee9d01;
 $earning-color: #2962ff;
 
+$finance-colors: ($balance-color, $ref-earning-color, $sales-color, $earning-color);
+
+@for $i from 1 through 4 {
+}
+
 .cost-item {
     display: flex;
-    // викликаючи міксин spacing з файлу service.scss задаємо відступи нашому контейнеру
-    @include service.spacing(2);
+    // викликаючи функцію spacing з файлу service.scss задаємо відступи нашому контейнеру
+    gap: service.spacing(2);
     align-items: center;
 }
 

@@ -1,3 +1,22 @@
+.chip, .pending, .approved, .rejected {
+  border-radius: 5px;
+  padding: 4px 8px;
+  width: fit-content;
+  color: #fff;
+}
+
+.rejected {
+  background-color: #f64e60;
+}
+
+.approved {
+  background-color: #0bb7af;
+}
+
+.pending {
+  background-color: #2962ff;
+}
+
 .chat-item {
   display: flex;
   gap: 8px;
@@ -24,25 +43,6 @@
   font-weight: 400;
   font-size: 16px;
   color: #1e2a35;
-}
-
-.chip, .approved, .pending, .rejected {
-  border-radius: 5px;
-  padding: 4px 8px;
-  width: fit-content;
-  color: #fff;
-}
-
-.rejected {
-  background-color: #f64e60;
-}
-
-.pending {
-  background-color: #f64e60;
-}
-
-.approved {
-  background-color: #0bb7af;
 }
 
 .cost-item {
@@ -98,11 +98,21 @@
 
 .wrapper {
   display: grid;
-  margin: 30px auto;
+  margin: 32px auto;
   width: 60%;
   gap: 32px;
 }
 
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .wrapper {
+    width: 100%;
+  }
+}
 .container {
   background-color: #fff;
   display: grid;
