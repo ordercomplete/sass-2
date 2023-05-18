@@ -51,12 +51,17 @@ $chip-styles: ("rejected" $rejected-color, "approved" $approved-color, "pending"
 .name {
     font-weight: 600;
     font-size: 16px;
+
+    // ==================================================
+
     // перевіримо чи є в нас змінна primary-text, якщо немає задамо чорний колір тексту
     @if varibles.$primary-text {
         color: varibles.$primary-text;
     } @else {
         color: black;
     }
+
+    // ====================================================
 }
 
 .message {
