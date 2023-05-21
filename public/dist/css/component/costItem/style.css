@@ -2,28 +2,28 @@
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  background-color: #0bb7af;
+  background-color: #cef1ef;
 }
 
 .ref-earning {
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  background-color: #f64e60;
+  background-color: #fcdbdf;
 }
 
 .sales {
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  background-color: #ee9d01;
+  background-color: #fbecd2;
 }
 
 .earnings {
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  background-color: #2962ff;
+  background-color: #cee0ff;
 }
 
 .cost-item {
@@ -33,12 +33,14 @@
 }
 
 .cost, .balance, .ref-earning, .sales, .earnings {
-  opacity: 0.2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border: 1px solid #dbe0e5;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.05);
 }
 
+.cost-info {
+  display: grid;
+  gap: 4px;
+}
 .cost-info p {
   font-weight: 400;
   color: #757e85;

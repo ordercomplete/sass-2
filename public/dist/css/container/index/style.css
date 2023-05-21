@@ -27,6 +27,9 @@
   width: 50px;
   border-radius: 50%;
 }
+.avatar img {
+  width: 50px;
+}
 
 .chat-item-info {
   display: grid;
@@ -49,28 +52,28 @@
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  background-color: #0bb7af;
+  background-color: #cef1ef;
 }
 
 .ref-earning {
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  background-color: #f64e60;
+  background-color: #fcdbdf;
 }
 
 .sales {
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  background-color: #ee9d01;
+  background-color: #fbecd2;
 }
 
 .earnings {
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  background-color: #2962ff;
+  background-color: #cee0ff;
 }
 
 .cost-item {
@@ -80,12 +83,14 @@
 }
 
 .cost, .balance, .ref-earning, .sales, .earnings {
-  opacity: 0.2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border: 1px solid #dbe0e5;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.05);
 }
 
+.cost-info {
+  display: grid;
+  gap: 4px;
+}
 .cost-info p {
   font-weight: 400;
   color: #757e85;
@@ -101,6 +106,7 @@
   margin: 32px auto;
   width: 60%;
   gap: 32px;
+  padding: 8px;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -122,6 +128,8 @@
 
 .title {
   margin-bottom: 24px;
+  display: grid;
+  gap: 4px;
 }
 .title h3 {
   font-weight: 600;
@@ -148,6 +156,14 @@
 .chats {
   display: grid;
   gap: 16px;
+}
+
+@media all and (width < 800px) {
+  .costs-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
