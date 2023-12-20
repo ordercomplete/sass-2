@@ -101,6 +101,11 @@
   color: #1e2a35;
 }
 
+@media all and (width < 600px) {
+  body {
+    background: red;
+  }
+}
 .wrapper {
   display: grid;
   margin: 32px auto;

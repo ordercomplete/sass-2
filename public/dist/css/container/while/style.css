@@ -30,6 +30,10 @@
   animation-delay: 0.4444444444s;
 }
 
+.tile:nth-child(9) {
+  animation-delay: 0.5s;
+}
+
 @keyframes pulse {
   0% {
     background: #cfcfdf;

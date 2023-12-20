@@ -1,15 +1,28 @@
-@use "../../lib/service.scss";
-@use "../../lib/varibles.scss";
-@use "../../component/chatItem/style.scss" as chatItem;
-@use "../../component/costItem/style.scss" as costItem;
+@use '../../lib/service.scss';
+@use '../../lib/varibles.scss';
+@use '../../component/chatItem/style.scss' as chatItem;
+@use '../../component/costItem/style.scss' as costItem;
 
 // ======================================================
 
 // створюємо об'єкт ключами якого будут ширини ектрана, а значення ширина яку має займати елемент
 $layout-sizes: (
-  "1200px": 80%,
-  "900px": 100%,
+  '1200px': 80%,
+  '900px': 100%,
 );
+
+$screenSize: (
+  pc: 1300px,
+  laptop: 1000px,
+  tablet: 800px,
+  mobile: 600px,
+);
+
+@media all and (width < map-get($screenSize, mobile)) {
+  body {
+    background: red;
+  }
+}
 
 .wrapper {
   display: grid;
@@ -18,7 +31,7 @@ $layout-sizes: (
   width: 60%;
   // викликаючи функцію spacing з файлу service.scss задаємо відступи нашому контейнеру
   gap: service.spacing(8);
-	padding: service.spacing(2);
+  padding: service.spacing(2);
 }
 
 // створюємо media queries для адаптивності нашого контейнера за допомогою перебору об'єкту
@@ -57,8 +70,8 @@ $layout-sizes: (
   }
   // викликаючи функцію spacing з файлу service.scss задаємо відступи нашому контейнеру
   margin-bottom: service.spacing(6);
-	display: grid;
-	gap: service.spacing(1);
+  display: grid;
+  gap: service.spacing(1);
 }
 
 .divider {
@@ -79,9 +92,9 @@ $layout-sizes: (
 }
 
 @media all and (width < 800px) {
-	.costs-container {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: service.spacing(4);
-	}
+  .costs-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: service.spacing(4);
+  }
 }
